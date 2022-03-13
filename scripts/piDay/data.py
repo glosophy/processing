@@ -9,7 +9,7 @@ for line in file:
     text.append(line.decode('utf-8'))
 
 # create a list with each decimal as element
-decimals = []
+decimals = [3]
 for i in text:
     for j in i:
         decimals.append(j)
