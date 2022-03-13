@@ -10,3 +10,8 @@ I started playing around with de Jong and Clifford attractors. I find it fascina
 A combination of different random numbers applied to the concepts of acceleration, velocity, and position. 
 
 ![Poster II](scripts/processingPosters/randomWalk/vermelhaAzul-05.png)
+
+## III : pi day
+A poster displaying the first 1897 decimal digits of pi in honor of Albert Einstein, who was born on pi day in 1897. 
+
+![Poster III](scripts/piDay/piDay.png)
