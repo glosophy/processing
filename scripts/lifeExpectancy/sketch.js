@@ -8,10 +8,13 @@ let weeks_1820 = year_1820 * weeks;
 let weeks_2019 = year_2019 * weeks;
 
 // set canvas
-let horizontal = 66;
-let vertical = 81;
-let maxRadius = 11;
-let segment = maxRadius * sin(radians(60));
+let horizontal = 62;
+let vertical = 85;
+let diam = 13;
+let radius = diam/2;
+let angle = 360/12;
+let side = radius;
+
 
 let width = 1500;
 let height = 2000;
@@ -19,15 +22,6 @@ let leftMargin = 150;
 let topMargin = 150;
 let rightMargin = leftMargin;
 let bottomMargin = topMargin + 50;
-
-// let spaceWidth =
-//   (width - leftMargin - rightMargin - maxRadius * horizontal) / horizontal;
-
-let spaceWidth =
-  (width - leftMargin - rightMargin - maxRadius * horizontal) / horizontal;
-let spaceHeight = 
-  (height - topMargin - bottomMargin - segment * vertical) / vertical;
-
 
 
 function setup() {
@@ -39,9 +33,8 @@ function setup() {
 function draw() {
   background('#FAFAFA');
   noFill();
-  strokeWeight(2);
+  strokeWeight(1);
   stroke('#ff4800');
-  rectMode(CENTER);
 
 
   counter = 0; // start counter
@@ -51,37 +44,40 @@ function draw() {
   push();
   translate(leftMargin, topMargin);
   
-  for (let i = 0; i < vertical; i++) {
-    for (let j = 0; j < horizontal; j++) {
+  for (let j = 1; j < vertical; j++) {
+    for (let i = 0; i < horizontal; i++) {
       
       if (squares > weeks_1820) {
-        noStroke();
+        stroke(255);
         fill('#ff4800');
       }
       
       if (counter < weeks_2019) {
         
-        if (j % 2 == 0) {
-          
+        if (i % 2 == 0) {
+
           push();
-          translate(((j+1) * maxRadius) + (j * spaceWidth), ((i+1) * maxRadius) + (i * spaceHeight) + maxRadius);
-          polygon(0, 0, maxRadius, 6);
+          translate((i*2*diam) - (i*side), diam-side/4 + (j*(radius+(side/2)+side/4)*2));
+          polygon(0, 0, diam, 6);
           pop();
-          
+
+
         } else {
-            push();
-            translate(((j+1) * maxRadius) + (j * spaceWidth), ((i+1) * maxRadius) + (i * spaceHeight));
-            polygon(0, 0, maxRadius, 6); 
-            pop();
+
+          push();
+          translate((i*2*diam) - (i*side), 0 + (j*(radius+(side/2)+side/4)*2));
+          polygon(0, 0, diam, 6);
+          pop();
         }
-      }
 
       squares +=1;
       counter += 1; // increase counter value to stop drawing rects
     }
   }
+  }
   pop();
   
+
 }
 
 function polygon(x, y, radius, npoints) {
