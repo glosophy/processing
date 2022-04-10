@@ -1,24 +1,42 @@
 PImage img;
-int size = 30;
+int imgSize = 325;
+int size = 20;
 String[] images = { "charly3.jpeg",
                    "aznar.jpeg",
                    "fito.jpeg",
                    "spinetta.png"};
+                   
+int marginLeft = 150;
+int marginRight = marginLeft;
+int marginTop = 150;
+int marginBottom = marginTop;
 
 void setup() {
-  size(900, 900);
-
+  size(1000, 1000);
 }
 
 void draw() {
-  background(255);
+  background(#fafafa);
   noStroke();
   
   for(var i = 0; i < images.length; i++) {
     
     img = loadImage(images[i]);
+    img.resize(imgSize, imgSize);
     
-    
+    if (images[i] == "charly3.jpeg") {
+      push();
+      translate(marginLeft, marginTop);
+    } if (images[i] == "aznar.jpeg") {
+      push();
+      translate(width - marginRight - imgSize, marginTop);
+    } if (images[i] == "fito.jpeg") {
+      push();
+      translate(marginLeft, height - marginTop - imgSize);
+    } if (images[i] == "spinetta.png") {
+      push();
+      translate(width - marginRight - imgSize, height - marginTop - imgSize);
+    }
     
       for(var x =0; x < img.width; x += size){
         for(var y=0; y < img.height; y += size){
@@ -27,7 +45,9 @@ void draw() {
         }
       }
     
-  //saveFrame("output4/charly-###.png");
+    pop();
+    
+  //saveFrame("output4/posterSq-###.png");
   }
 }
 
