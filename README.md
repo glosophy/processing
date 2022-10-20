@@ -15,3 +15,9 @@ A combination of different random numbers applied to the concepts of acceleratio
 A poster displaying the first 1897 decimal digits of pi in honor of Albert Einstein, who was born on pi day in 1897. 
 
 ![Poster III](scripts/piDay/piDay.png)
+
+
+## IV : Drawing Cortázar
+Playing around with sounds inputs to generate drawings. The following were generated from an audio recorded by Julio Cortázar reading his own work. 
+
+<img src="https://github.com/glosophy/processing/blob/main/scripts/drawingCortazar/images/2022.10.2_15.14.29.png" width="45%"></img> <img src="https://github.com/glosophy/processing/blob/main/scripts/drawingCortazar/images/2022.10.2_15.13.19.png" width="45%"></img>
